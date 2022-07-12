@@ -13,6 +13,8 @@
    --individual-black-logo: #000000;
    --individual-bgc-color: #F5F4FA;
    --icon-color: #AFB1B8;
+   --time-transition: 250ms;
+   --cubic: cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Постоянные переменные на странице */
  body {
@@ -90,7 +92,7 @@
    display: block;
    position: relative;
 
-   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   transition: color var(--time-transition) var(--cubic);
 }
 
 .nav-list .link.current::after {
@@ -116,7 +118,7 @@
     letter-spacing: 0.02em;
     text-decoration: none;
 
-   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   transition: color var(--time-transition) var(--cubic);
  }
 .contact-list {
    display: flex;
@@ -132,7 +134,7 @@
    padding: 0;
    fill: var(--primary-text-color);
 
-   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   transition: fill var(--time-transition) var(--cubic);
    
 }
 .contact-link:hover .contact-icon {
@@ -359,8 +361,8 @@
    border-radius: 50%;
 
    transition: 
-   background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
-   color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   background-color var(--time-transition) var(--cubic), 
+   color var(--time-transition) var(--cubic);
 }
 .social-link:hover{
    background-color: var(--accent-color);
@@ -384,11 +386,11 @@
    border: 1px solid var(--icon-color);
    border-radius: 4px;
 
-   transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   transition: border var(--time-transition) var(--cubic);
 }
 .client-icon {
    fill: var(--icon-color);
-   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   transition: fill var(--time-transition) var(--cubic);
 }
 .client-link:hover,
 .client-link:hover .client-icon {
@@ -482,9 +484,9 @@
    text-align: center;
    letter-spacing: 0.03em;
 
-   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-   box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
-   color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   transition: background-color var(--time-transition) var(--cubic),
+   box-shadow var(--time-transition) var(--cubic),
+   color var(--time-transition) var(--cubic);
 }
 .portfolio-btn:hover,
 .portfolio-btn:focus {
@@ -512,7 +514,7 @@
 .card-work {
    cursor: pointer;
    
-   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   transition: box-shadow var(--time-transition) var(--cubic);
    
 }
 .card-work:hover {
@@ -544,7 +546,7 @@
    height: 100%;
    background-color: rgba(33, 150, 243, 0.9);
    transform: translateY(101%);
-   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   transition: transform var(--time-transition) var(--cubic);
 
 }
 .card-work:hover .card-work-overlay {
@@ -588,7 +590,7 @@
    background-color: rgba(0, 0, 0, 0.2);
 
    opacity: 1;
-   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   transition: opacity var(--time-transition) var(--cubic), visibility var(--time-transition) var(--cubic);
 }
 
 .backdrop.is-hidden {
@@ -620,7 +622,7 @@
    
    transform: translate(-50%, -50%) scale(1);
 
-   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   transition: transform var(--time-transition) var(--cubic);
 }
 
 .btn-close-modal {
@@ -635,7 +637,7 @@
    border: 1px solid rgba(0, 0, 0, 0.1);
    background-color: var(--basic-white);
    cursor: pointer;
-   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   transition: fill var(--time-transition) var(--cubic);
 }
 
 .icon-close-modal {
@@ -681,7 +683,7 @@
    left: 12px;
    top: 50%;
    fill: var(--title-text-color);
-   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   transition: fill var(--time-transition) var(--cubic);
    }
 .form-field-input {
    width: 100%;
@@ -690,7 +692,7 @@
    border: 1px solid rgba(33, 33, 33, 0.2);
    border-radius: 4px;
    border-color: var(--primary-text-color);
-   transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   transition: border var(--time-transition) var(--cubic);
 }
 .form-field-input:focus-within {
    border-color: var(--accent-color);
@@ -708,7 +710,7 @@
    padding: 12px 16px;
    margin-bottom: 20px;
    resize: none;
-   transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   transition: border var(--time-transition) var(--cubic);
 }
 .form-field-textarea:focus-within {
    border-color: var(--accent-color);
@@ -723,22 +725,41 @@
    display: flex;
    align-items: center;
    margin-bottom: 30px;
-   padding-left: 24px;
+   margin-left: 14px;
    line-height: 1.71;
    color: var(--primary-text-color);
    }
-.visually-hidden {
+
+.checkbox {
+   /* -webkit-appearance: hidden;
+   -moz-appearance: hidden;
+   appearance: hidden; */
+
    position: absolute;
    width: 1px;
    height: 1px;
    margin: -1px;
    border: 0;
    padding: 0;
-   white-space: nowrap;
    clip-path: inset(100%);
    clip: rect(0 0 0 0);
    overflow: hidden;
-   }
+
+}
+
+.checkbox-icon{
+   display: inline-flex;
+   width: 16px;
+   height: 15px;
+   border: 2px solid var(--title-text-color);
+   border-radius: 2px;
+   margin-right: 7px;
+}
+.checkbox:checked + .checkbox-icon {
+   border-color: transparent;
+   background-color: var(--accent-color);
+}
+
 .form-terms-link {
 color: var(--accent-color);
    }
@@ -746,4 +767,53 @@ color: var(--accent-color);
    margin: auto;
    display: block;
 
+} 
+.subscribe {
+   /* display: flex; */
+   margin-top: 12px;
+   margin-left: 93px;
+}
+.subscribe-label {
+   display: block;
+   margin-bottom: 20px;
+
+   font-weight: 700;
+   font-size: 14px;
+   line-height: 1.14;
+   text-transform: uppercase;
+   
+   color: var(--basic-white);
+}
+
+.subscribe-input {
+min-height: 50px;
+width: 358px;
+padding: 15px 16px;
+
+border: 1px solid rgba(255, 255, 255, 0.3);
+background-color: transparent;
+border-radius: 4px;
+color: var(--basic-white);
+
+transition: border var(--time-transition) var(--cubic);
+}
+
+.subscribe-input:focus-within {
+border-color: var(--accent-color);
+}
+
+.subscribe-btn {
+   display: inline-flex;
+   margin-left: 10px;
+   align-items: center;
+}
+
+.subscribe-icon {
+   
+   width: 24px;
+   height: 24px;
+   
+   margin-left: 10px;
+   
+   fill: var(--basic-white);
 }
